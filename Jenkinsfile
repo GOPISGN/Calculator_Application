@@ -59,20 +59,22 @@ pipeline {
 	}
 	
 	post {
-		always {
-			bat 'echo "Clean the files from WS"'
-			bat 'del calculator.py'
-			bat 'del .gitignore'
-			bat 'del README.md'
-		}
 		success {
 			bat 'echo "Build Passed"'
+			bat 'tar -cvzf Log.tar "C:\\Program Files (x86)\\Jenkins\\workspace\\Calculator Application\\.git"'
 		
 		}
 		
 		failure {
 			bat 'echo "Build Failed"'
 			bat 'echo "Please fix!"'
+		}
+		
+		always {
+			bat 'echo "Clean the files from WS"'
+			bat 'del calculator.py'
+			bat 'del .gitignore'
+			bat 'del README.md'
 		}
 				
 	}
