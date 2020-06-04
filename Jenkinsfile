@@ -2,8 +2,6 @@ pipeline {
 	agent any
      
 	stages {
-		
-		
 			
 		stage('Stage 1 : Pre-check Python is installed or not') {
 			steps {
@@ -61,6 +59,7 @@ pipeline {
 	post {
 		success {
 			bat 'echo "Build Passed"'
+			bat 'echo "Tar the Log file from Build Workspace and Copy to a Repository"
 			bat 'tar -cvzf Log.tar "C:\\Program Files (x86)\\Jenkins\\workspace\\Calculator Application\\.git"'
 			bat 'copy /y Log.tar "C:\\Users\\Dell\\Documents\\Gopi\\Study\\Devops\\Logs"'
 		
