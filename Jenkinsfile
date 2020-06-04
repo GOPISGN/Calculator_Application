@@ -14,6 +14,12 @@ pipeline {
             }
         }
 		
+		stage("Code Quality") {
+			steps {
+				bat 'echo "Run Code Quality check with SonarQube"'
+				bat 'C:\\Users\\Dell\\Documents\\Office\\Devops\\sonar-scanner-cli-4.3.0.2102-windows\\sonar-scanner-4.3.0.2102-windows\\bin\\sonar-scanner.bat
+			}
+		}
 		stage('Stage 2 : Unit Test') {
 			parallel {
 				
